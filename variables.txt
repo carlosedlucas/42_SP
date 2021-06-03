@@ -1,0 +1,9 @@
+* It creates a variable:
+	EXAMPLES: name=Murilo
+
+* It shows variable's value:
+	EXAMPLES: echo $name //It will print 'Murilo'
+
+
+* It adds a variable to the environment:
+	EXAMPLES: export name

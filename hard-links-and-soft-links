@@ -1,0 +1,11 @@
+*	Hard links	*
+	You can think a hard link as an additional name for an existing file.
+	Hard links are associating two or more file names with the same inode . You can create one or more hard links for a single file.
+	Hard links cannot be created for directories and files on a different filesystem or partition.
+
+*	Soft links	*
+	A soft link is something like a shortcut in Windows. It is an indirect pointer to a file or directory. Unlike a hard link,
+	a symbolic link can point to a file or a directory on a different filesystem or partition.
+
+
+Source: https://linuxize.com/post/how-to-create-symbolic-links-in-linux-using-the-ln-command/#links-types

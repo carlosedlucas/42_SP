@@ -1,0 +1,68 @@
+D - Directory/Folder. It means it's a folder or directory
+	R - Read (Ler)
+	W - Write (Editar/Escrever)
+	X - Execute (Executar)
+
+	Three groups of letters:
+		1 - [rwx] -> The permissions of your User to this file
+		2 - [rwx] -> The permissions of your Group to this file
+		3 - [rwx] -> The permissions of Others, it's not you or your group, to this file
+
+		EXAMPLE: [rwxr-x--x]
+			Your user can read, write and execute this file
+			Your group can read and execute this file
+			Others can only execute this file
+
+	
+	REFERENCE TO TYPE OF USERS
+		u - User (Your user)
+		g - Group
+		o - Others
+
+
+	THE PERMISSIONS SYMBOLS CAN BE NUMBER TOO:
+		R -> 7
+		W -> 6
+		X -> 4 
+
+
+============================== COMMANDS ==============================
+
+	it adds permissions to an USER
+		EXAMPLES:
+			chmod u+r file.txt
+			chmod u+w file.txt
+			chmod u+x file.txt
+
+	it removes permissions from an USER
+		EXAMPLES:
+			chmod u-r file.txt
+			chmod u-w file.txt
+			chmod u-x file.txt
+
+	it adds permissions to a GROUP
+		EXAMPLES:
+			chmod g+r file.txt
+			chmod g+w file.txt
+			chmod g+x file.txt
+
+	it removes permissions from a GROUP
+		EXAMPLES:
+			chmod g-r file.txt
+			chmod g-w file.txt
+			chmod g-x file.txt
+
+	it adds permissions to OTHERS
+		EXAMPLES:
+			chmod o+r file.txt
+			chmod o+w file.txt
+			chmod o+x file.txt
+
+	it removes permissions from OTHERS
+		EXAMPLES:
+			chmod o-r file.txt
+			chmod o-w file.txt
+			chmod o-x file.txt
+
+	BONUS:
+		chmod a-x file.txt //It removes the 'execute' permissions to All types of users (User, Group, Other)

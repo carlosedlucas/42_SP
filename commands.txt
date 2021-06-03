@@ -1,0 +1,214 @@
+========== COMMANDS ==========
+
+(clear) or (CTRL + L): it cleans the terminal
+
+(mkdir): it creates a new directory/folder
+
+(ls): It shows a list of content from the current folder
+
+(ls -l): it shows folders and files
+
+(ls -p): it shows folders and files
+
+(ls -t): it shows the folders and files from the newer ones to the older ones
+
+(ls -r): It reverses the output of 'ls'
+
+(ls -m): It adds a comma (,) in the end of any folder/file
+
+(ls -F): Use the classify option, and ls will append one of these to each listing entry:
+		/ A directory
+		@ A symlink
+		| A named pipe
+		= A socket
+		* An executable files
+
+(ls -la): it shows hidden folders and files
+
+(ls > file.txt): It writes the output of 'ls' in a file
+	OBS: If the file you choose has already a content, this content will be over override by the output of 'ls'
+
+(ls fileThatDoesNotExist 2> error.log): It writes the error message in error.log 
+
+(ls fileThatDoesNotExist 2> error.log | grep .txt > success.log): It writes the error message in error.log and success message in success.log
+
+(pwd): it shows the current directory
+
+(cd): it navigates to a directory
+	EXAMPLES: cd myFolder
+
+(cd ..): it returns to the above/earlier directory
+
+(rmdir): it deletes a directory. ONLY works if the folder is empty
+	EXAMPLES:
+		rmdir myFolder
+
+(rm -rf): it deletes a file
+	EXAMPLES:
+		rm -rf myFile.txt
+		rm -rf * //It will delete ALL files on the current folder
+
+(echo): It writes an output
+	EXAMPLES:
+		echo Hello, how are you?
+		echo yourMessageHere
+
+(echo *): It filter files
+	EXAMPLES:
+		echo *.txt //It shows all files that are txt
+
+(echo '*'): It prints '*'
+
+(echo f???.txt): It filter files by an expression
+	EXAMPLES:
+		echo f???.txt
+		echo f*.txt
+
+(echo ~): It shows the initial path
+
+(echo someTextHere > file.txt): It overrides the content of file.txt by 'someTextHere'
+
+(echo someTextHere >> file.txt): It DOES NOT override the content of file.txt, just adds 'someTextHere'
+
+(cat): It shows the content of a file
+	EXAMPLES:
+		cat file.txt
+		cat -e file.txt //The option "-e" shows the lines break
+
+(touch): It creates a new file
+	EXAMPLES:
+		touch myNewFile.txt
+
+(touch -t): It changes the date of a file
+	EXAMPLES: touch -t 201509191030 file.txt //Date format: YYYY/MM/DD HH:mm
+	OBS: If the date it's six months before OR in the future of the current date, the hour does not appear
+
+(sh): It opens a sub-shell
+
+(env): It shows environment variables
+
+(wc): It shows all files by a filter
+	EXAMPLES:
+		wc *.txt
+
+(wc -l file.txt): It shows the number of lines in file.txt
+	EXAMPLES:
+		wc -l bigFile.txt
+
+(wc -w file.txt): It shows the number of words in file.txt
+	EXAMPLES:
+		wc -w bigFile.txt
+
+(wc -c file.txt): It shows the number of characters in file.txt
+	EXAMPLES:
+		wc -c bigFile.txt
+
+(more bigFile.txt): It shows the content of the file, but paginated, to see the next page just press space-bar
+
+(head -n 5 file.txt): It shows a specific number of the first lines from a file
+	EXAMPLES:
+		head -n 3 file.txt
+		head -n 2 file.txt
+
+
+(head -c 3 file.txt): It shows a specific number of the first characters from a file
+	EXAMPLES:
+		head -c 4 file.txt
+		head -c 6 file.txt
+
+(tail -n 3 file.txt): It shows a specific number of the last lines from a file
+	EXAMPLES:
+		head -n 4 file.txt
+		head -n 6 file.txt
+
+(tail -c 3 file.txt): It shows a specific number of the last characters from a file
+	EXAMPLES:
+		head -c 4 file.txt
+		head -c 6 file.txt
+
+(grep): It searches by a word in a file
+	EXAMPLES:
+		grep Hello file.txt //It searches the word 'Hello' in file.txt
+		grep -v Hello file.txt //It searches the lines where THERE IS NOT the word 'Hello'
+		grep -i HeLlO file.txt //It searches a word, but does not differentiate if it is UpperCase or LowerCase
+
+(|): The pipe symbol allows to execute many commands one after another
+
+(ls | grep): It filters a file based on what 'ls' returns
+	EXAMPLES:
+		ls | grep .txt
+
+
+(cat success.log | grep .txt | wc -l): It shows the content of success.log, then searches by the expression '.txt' and then it counts how many of them are
+
+(find . -name success.log): It finds a file by name in the current directory
+	OBS: (.) means the current folder where you are
+
+(find . -type d): It finds all directories in the current folder
+
+(find . -maxdepth): It defines the depth of your search
+	CONTEXT:
+		firstFolder/myFile.txt
+		firstFolder/mySecondFolder/hello.txt
+	
+	EXAMPLES:
+		find . -maxdepth 1 //It prints 'firstFolder/myFile.txt'
+		find . -maxdepth 2 //It prints 'firstFolder/mySecondFolder/hello.txt'
+
+(bc): it's a calculator that you can use in the terminal
+	EXAMPLES:
+		7*5 //It prints 35
+		4+6 //It prints 10
+		z=10
+		y=5
+		z //It prints 10
+		z+y //It prints 15
+		a=z*y
+		a // It prints 50
+
+	OBS: type 'quit' when you're all done with math
+
+(ln):	*Suggestion*: first read the file hard-links-and-soft-links.txt.
+	  	ln is a command-line utility for creating links between files.
+	  		EXAMPLES:
+				ln firstFile.txt secondFile.txt //It will create a HARD link between firstFile.txt and secondFile.txt
+				ln -s firstFile.txt secondFile.txt //It will create a SOFT link between firstFile.txt and secondFile.txt
+
+		OBS:
+			1 - To overwrite the destination path of the symlink, use the -f (--force) option.
+			2 - To delete/remove symbolic links use either the unlink or rm command
+				EXAMPLES:
+					unlink file.txt
+					rm file.txt
+
+(cp): It copies files
+	EXAMPLES:
+		cp file file02
+
+(diff): It compares two files
+	EXAMPLES:
+		diff file.txt file02.txt
+		diff file.txt file02.txt > outputFile //The output goes to 'outputFile'
+
+(patch): It updates a file using the output of the command 'diff'
+	CONTEXT:
+		file.txt -> content: Murilo
+		file02.txt -> content: Dutra
+
+	EXAMPLES:
+		patch file.txt diff_output.txt //New content will be: 'Dutra'
+		patch file02.txt diff_output.txt //New content will be: 'Murilo'
+
+(wget): To download things
+	EXAMPLES: wget https://projects.intra.42.fr/uploads/document/document/2546/resources.tar.gz
+
+(tar):
+	CONTEXT:
+		folder -> file01, file02
+	EXAMPLES:
+		tar -cf allMyFilesHere.tar * //It compacts the files
+		tar -xf allMyFilesHere.tar 	 //It extracts the files
+	OBS:
+		-c: it create a new tar file
+		-x: it extracts the files from .tar
+		-f: it defines the name of .tar
