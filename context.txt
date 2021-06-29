@@ -1,4 +1,0 @@
--	When you create a new folder in your workspace, your system will create two hidden folders. The folders are: (.) and (..)
-	(.) it's your current folder
-	(..) it's the parent folder, that's why when you execute the command "cd ..", it returns to the above directory
-
